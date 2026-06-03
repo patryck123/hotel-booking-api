@@ -1,20 +1,31 @@
-# Hotel Booking API
+# 🏨 Hotel Booking API
 
-Sistema de reservas de hotel com verificação automática de conflito de datas, cálculo de valor total da estadia e gestão de quartos por tipo e disponibilidade.
+Sistema de reservas de hotel com controle de disponibilidade e conflito de datas.
 
-## Tecnologias
-Java 17 · Spring Boot 3.2 · Spring Data JPA · MySQL · Maven · Swagger/OpenAPI
+## 📋 Sobre o Projeto
 
-## Funcionalidades
-- Cadastro de quartos por tipo (Standard, Deluxe, Suite, Presidential)
-- Reserva com verificação de conflito de datas via JPQL
-- Cálculo automático do valor total (diárias × preço/noite)
-- Consulta de reservas por hóspede
-- Cancelamento de reserva
+API para gerenciar reservas de um hotel. Controla quartos por tipo (SINGLE, DOUBLE, SUITE), verifica automaticamente se o quarto está disponível no período solicitado e evita double-booking.
 
-## Como Executar
-```bash
-mvn spring-boot:run
-# Acesse: http://localhost:8093/swagger-ui.html
-```
-**Patryck Martins Langsdorff** — Java Back End Developer Junior | [LinkedIn](https://www.linkedin.com/in/patryck-martins-langsdorff)
+## ✨ Funcionalidades
+
+- ✅ Cadastrar quartos por tipo e preço por diária
+- ✅ Verificar disponibilidade por datas
+- ✅ Criar reserva com validação de conflito de datas
+- ✅ Confirmar, cancelar ou completar reserva
+- ✅ Cálculo automático do valor total da estadia
+- ✅ Listar reservas por quarto
+- ✅ Listar reservas por hóspede
+
+## 🔗 Endpoints
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET/POST | `/api/rooms` | Listar / Cadastrar quartos |
+| GET | `/api/rooms/available` | Quartos disponíveis |
+| GET/POST | `/api/bookings` | Listar / Criar reserva |
+| PATCH | `/api/bookings/{id}/status` | Atualizar status |
+| GET | `/api/bookings/guest/{id}` | Reservas por hóspede |
+
+## 🛠️ Tecnologias
+
+- Java 17 · Spring Boot 3.2 · MySQL · Maven · Lombok
